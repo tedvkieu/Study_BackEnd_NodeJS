@@ -7,6 +7,10 @@ const connection = require('./config/database.js')
 const webRoute = require('./routes/web.js')
 const configViewEngine = require('./config/viewEngine.js');
 
+//config req.body
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+
 configViewEngine(app);
 app.use('/', webRoute)
 
