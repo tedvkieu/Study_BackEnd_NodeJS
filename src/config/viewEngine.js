@@ -4,7 +4,7 @@ const configViewEngine = (app) => {
     app.set('views', path.join('./src/', 'views'));
     app.set('view engine', 'ejs');
 
-    app.use(express.static(path.join('./src/', 'public'))) //Select the file path as "public" to find subfiles 
-}
+    app.use(express.static(path.join('./src/', 'public'))); //Select the file path as "public" to find subfiles
+};
 
 module.exports = configViewEngine;

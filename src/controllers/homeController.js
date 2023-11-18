@@ -17,6 +17,10 @@ const getCreateUser = (req, res) => {
     res.render('create.ejs');
 };
 
+const getUpdateUser = (req, res) => {
+    res.render('update.ejs');
+};
+
 const postCreateUser = async (req, res) => {
     let email = req.body.email;
     let name = req.body.name;
@@ -37,5 +41,6 @@ module.exports = {
     getABC,
     getTed,
     getCreateUser,
+    getUpdateUser,
     postCreateUser,
 };
