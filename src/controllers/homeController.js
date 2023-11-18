@@ -18,6 +18,8 @@ const getCreateUser = (req, res) => {
 };
 
 const getUpdateUser = (req, res) => {
+    const userId = req.params.id;
+    console.log('>>> req.params: ', req.params, userId);
     res.render('update.ejs');
 };
 

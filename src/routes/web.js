@@ -17,7 +17,7 @@ router.get('/tedvkieu', getTed);
 
 router.get('/create', getCreateUser);
 
-router.get('/update', getUpdateUser);
+router.get('/update/:id', getUpdateUser);
 
 router.post('/create_User', postCreateUser);
 
