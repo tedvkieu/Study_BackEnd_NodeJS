@@ -1,5 +1,5 @@
 const connection = require('../config/database.js');
-const { getAllUsers } = require('../services/CRUDservice.js');
+const { getAllUsers, getUserById } = require('../services/CRUDservice.js');
 
 const getHomePage = async (req, res) => {
     let results = await getAllUsers();
@@ -17,10 +17,12 @@ const getCreateUser = (req, res) => {
     res.render('create.ejs');
 };
 
-const getUpdateUser = (req, res) => {
+const getUpdateUser = async (req, res) => {
     const userId = req.params.id;
-    console.log('>>> req.params: ', req.params, userId);
-    res.render('update.ejs');
+    //console.log('>>> req.params: ', req.params, userId);
+    let user = await getUserById(userId);
+
+    res.render('update.ejs', { userEdit: user });
 };
 
 const postCreateUser = async (req, res) => {
