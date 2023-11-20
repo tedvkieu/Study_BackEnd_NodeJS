@@ -8,6 +8,8 @@ const {
     getUpdateUser,
     postCreateUser,
     postUpdateUser,
+    postDeleteUser,
+    postHandleRemoveUser,
 } = require('../controllers/homeController');
 
 router.get('/', getHomePage);
@@ -23,5 +25,8 @@ router.get('/update/:id', getUpdateUser);
 router.post('/create_User', postCreateUser);
 
 router.post('/update_User', postUpdateUser);
+
+router.post('/delete_User/:id', postDeleteUser);
+router.post('/delete_User/', postHandleRemoveUser);
 
 module.exports = router;
