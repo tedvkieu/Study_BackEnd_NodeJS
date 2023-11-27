@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const connection = require('./config/database.js');
 const webRoute = require('./routes/web.js');
 const configViewEngine = require('./config/viewEngine.js');
-const Kitten = require('./models/kitten.js');
 
 //config req.body
 app.use(express.json());
@@ -15,9 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 
 configViewEngine(app);
 app.use('/', webRoute);
-
-const cat = new Kitten({ name: 'Kieu ne model' });
-cat.save();
 
 (async () => {
     try {
