@@ -24,8 +24,8 @@ const getCreateUser = (req, res) => {
 
 const getUpdateUser = async (req, res) => {
     const userId = req.params.id;
-    //console.log('>>> req.params: ', req.params, userId);
-    let user = await getUserById(userId);
+
+    let user = await User.findById(userId).exec();
 
     res.render('update.ejs', { userEdit: user });
 };
@@ -50,7 +50,7 @@ const postUpdateUser = async (req, res) => {
     let name = req.body.name;
     let city = req.body.city;
 
-    console.log(
+    /*console.log(
         '>>> email = : ',
         email,
         'name= ',
@@ -60,9 +60,8 @@ const postUpdateUser = async (req, res) => {
         'userId = ',
         id
     );
-    await updateUserByID(id, email, name, city);
-
-    //console.log('>>>check results = ', results);
+    await updateUserByID(id, email, name, city);*/
+    await User.updateOne({ _id: id }, { email: email, name: name, city: city });
     res.redirect('/');
 };
 
