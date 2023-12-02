@@ -6,6 +6,7 @@ const hostname = process.env.HOST_NAME;
 const mongoose = require('mongoose');
 const connection = require('./config/database.js');
 const webRoute = require('./routes/web.js');
+const apiRoute = require('./routes/api.js');
 const configViewEngine = require('./config/viewEngine.js');
 
 //config req.body
@@ -14,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 configViewEngine(app);
 app.use('/', webRoute);
-
+app.use('/v1/api', apiRoute);
 (async () => {
     try {
         await connection();
