@@ -40,4 +40,13 @@ const putUpdateUserAPI = async (req, res) => {
         data: user,
     });
 };
-module.exports = { getUsersAPI, postUsersAPI, putUpdateUserAPI };
+const deleteUserAPI = async (req, res) => {
+    let id = req.body.userId;
+    let user = await User.deleteOne({ _id: id });
+
+    return res.status(200).json({
+        errorCode: 0,
+        data: user,
+    });
+};
+module.exports = { getUsersAPI, postUsersAPI, putUpdateUserAPI, deleteUserAPI };
