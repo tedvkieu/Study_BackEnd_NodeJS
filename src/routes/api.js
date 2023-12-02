@@ -1,17 +1,9 @@
 const express = require('express');
 const routerAPI = express.Router();
-const { getUsersAPI } = require('../controllers/apiController');
-
-routerAPI.get('/', (req, res) => {
-    res.send('hello world with API');
-});
-
-routerAPI.get('/abc', (req, res) => {
-    res.status(200).json({
-        data: 'hello world first api',
-    });
-});
+const { getUsersAPI, postUsersAPI } = require('../controllers/apiController');
 
 routerAPI.get('/users', getUsersAPI);
+
+routerAPI.post('/users', postUsersAPI);
 
 module.exports = routerAPI;
