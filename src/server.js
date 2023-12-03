@@ -8,6 +8,10 @@ const connection = require('./config/database.js');
 const webRoute = require('./routes/web.js');
 const apiRoute = require('./routes/api.js');
 const configViewEngine = require('./config/viewEngine.js');
+const fileUpload = require('express-fileupload');
+
+// default options
+app.use(fileUpload());
 
 //config req.body
 app.use(express.json());
