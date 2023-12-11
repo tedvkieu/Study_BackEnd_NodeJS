@@ -14,6 +14,6 @@ const customerSchema = new mongoose.Schema(
 );
 
 //save down database
-const Customer = mongoose.model('user', customerSchema);
+const Customer = mongoose.model('Customer', customerSchema);
 
 module.exports = Customer;
